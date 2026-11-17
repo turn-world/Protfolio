@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>조용준 | Embedded Firmware</title>
+<meta name="description" content="임베디드 펌웨어 엔지니어 조용준의 포트폴리오. 자작 전기차 VCU(APPS·CAN), TouchGFX 계기판, FreeRTOS 포장 자동화 장비, VS1053 MIDI 신디사이저.">
+<meta property="og:title" content="조용준 | Embedded Firmware">
+<meta property="og:description" content="잘못된 입력에는 안전하게 멈추고, 장치가 준비됐다는 신호를 확인한 뒤에 움직이는 펌웨어를 만듭니다.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/dash-car.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231d1d1b'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'%3Eyj%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">yj<span>.</span></a>
+    <ul>
+      <li><a href="#journey">이력</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#featured">대표 프로젝트</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#approach">작업 방식</a></li>
+      <li><a href="#contact">연락</a></li>
+    </ul>
+    <a class="gh" href="https://github.com/turn-world" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap grid">
+    <div class="reveal">
+      <p class="eyebrow">Cho Yongjun · Embedded Firmware</p>
+      <h1>잘못된 입력에는 <em>멈추고</em>,<br>준비된 신호를 확인한 뒤<br>움직이는 펌웨어</h1>
+      <p class="lead">자작 전기차에서는 두 페달 센서가 10% 이상 어긋난 채 100 ms가 지나면 인버터로 가는 토크 명령을 끊는 차량 제어기(VCU) 펌웨어를, RAM 64 KB의 STM32L432KC로는 햇빛 아래에서도 읽히는 운전자 계기판을 만들었습니다.</p>
+      <p class="lead">식품 포장 장비에서는 FreeRTOS로 장치마다 태스크를 나누고 레일 도착 신호에 맞춰 서보 모터와 펌프를 움직여 한 사이클을 9초로 줄였습니다. 개인 프로젝트로 음원 칩(VS1053) 드라이버를 직접 작성해 MIDI 신디사이저를 만들었고, 지금은 PC 없이 연주할 수 있는 확장 보드를 설계하고 있습니다.</p>
+      <div class="cta">
+        <a class="btn primary" href="#featured">프로젝트 보기 ↓</a>
+        <a class="btn ghost" href="https://github.com/turn-world" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <aside class="card profile reveal" aria-label="프로필 요약">
+      <p class="name">조용준</p>
+      <p class="role">임베디드 펌웨어 엔지니어</p>
+      <div class="stats">
+        <div class="stat"><b>5위</b><span>FSK 2026<br>종합 순위</span></div>
+        <div class="stat"><b>9초</b><span>포장 사이클<br>목표 11.33초</span></div>
+        <div class="stat"><b>2건</b><span>우수상 ·<br>캡스톤 와우상</span></div>
+      </div>
+      <dl class="info">
+        <dt>학력</dt><dd>홍익대학교 컴퓨터공학과<br>(부전공 전자전기공학부) · 2027.02 졸업 예정</dd>
+        <dt>교육</dt><dd>시스템 반도체 SW 개발 기초<br>(디바이스 드라이버) · 코멘토 2025</dd>
+        <dt>주력</dt><dd>C · STM32 · FreeRTOS · CAN · SPI</dd>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- 01 JOURNEY -->
+<section class="block" id="journey">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">01 / JOURNEY</span>
+      <h2>이력</h2>
+    </div>
+    <ol class="timeline reveal">
+      <li><time>2024.12 – 2025.05</time><div><h3><a href="#midi">MIDI 신디사이저 펌웨어</a></h3><p>개인 · STM32F411에서 VS1053 드라이버와 CLI를 직접 작성</p></div></li>
+      <li><time>2025.07 – 2025.09</time><div><h3>시스템 반도체 SW 개발 기초</h3><p>코멘토 · 디바이스 드라이버 개발 교육</p></div></li>
+      <li><time>2025.09 – 2026.08</time><div><h3><a href="#featured">Formula Student Korea 2026 · LIGHT-ON</a></h3><p>30인 팀 · VCU 펌웨어(APPS · CAN 토크 제어), 운전자 계기판, 원격 모니터링 · 종합 5위</p></div></li>
+      <li><time>2026.03 – 2026.06</time><div><h3><a href="#recipet">서울 영커리언스 챌린지 · 레시펫</a></h3><p>8인 팀 · FreeRTOS 포장 자동화 장비 제어 · 우수상</p></div></li>
+      <li><time>2026.04 – 현재</time><div><h3><a href="#keymento">KeyMento</a> · <a href="#quant">자동매매 봇</a></h3><p>AR 피아노 학습 시스템(4인) MIDI 판정 · 개인 자동매매 봇 운영</p></div></li>
+      <li class="on"><time>2026.10 – 현재</time><div><h3><a href="#synth">독립형 신디사이저 설계</a></h3><p>개인 · KiCad 확장 보드 PCB 설계 중 · 같은 달 교내 캡스톤 와우상(레시펫 장비)</p></div></li>
+      <li><time>2027.02</time><div><h3>홍익대학교 졸업 예정</h3><p>컴퓨터공학과 · 부전공 전자전기공학부</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 02 SKILLS -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">02 / SKILLS</span>
+      <h2>프로젝트로 익힌 기술</h2>
+      <p>기술 이름보다 어디에 썼는지를 기준으로 묶었습니다.</p>
+    </div>
+    <div class="skills">
+      <article class="card skill reveal">
+        <h3>센서 입력과 안전 판정</h3>
+        <p class="stack">C · STM32 · ADC · CAN</p>
+        <ul>
+          <li>두 페달 센서를 1 kHz로 읽어 보정 범위로 환산하고, 불일치 · 단선 · 단락을 판정</li>
+          <li>토크 컷오프로 페달 오차에 의한 의도치 않은 출발 차단</li>
+        </ul>
+        <div class="tags"><a class="tag" href="#featured">FSK 차량 제어기</a></div>
+      </article>
+      <article class="card skill reveal">
+        <h3>RTOS 태스크 설계</h3>
+        <p class="stack">STM32G474 · FreeRTOS · PWM · GPIO</p>
+        <ul>
+          <li>레일 · 위치 센서 · 서보 · 펌프를 장치별 태스크로 분리</li>
+          <li>시간 대기 대신 적외선 도착 신호로 다음 단계를 시작하는 이벤트 전환</li>
+        </ul>
+        <div class="tags"><a class="tag" href="#recipet">레시펫 포장 장비</a></div>
+      </article>
+      <article class="card skill reveal">
+        <h3>주변장치 드라이버와 통신</h3>
+        <p class="stack">SPI · UART · USB CDC · CAN</p>
+        <ul>
+          <li>DREQ 핸드셰이크를 지키는 VS1053 레지스터 드라이버, 제어(SPI)와 연주(UART) 경로 분리</li>
+          <li>차량 CAN(BMS · 인버터)을 받아 SPI TFT에 그리는 계기판</li>
+        </ul>
+        <div class="tags"><a class="tag" href="#midi">MIDI 신디사이저</a><a class="tag" href="#dashboard">운전자 계기판</a></div>
+      </article>
+      <article class="card skill reveal">
+        <h3>제한된 자원의 GUI</h3>
+        <p class="stack">TouchGFX · STM32L432KC · ILI9488</p>
+        <ul>
+          <li>RAM 64 KB에서 부분 프레임 버퍼(4.8 KB × 3)로 바뀐 영역만 갱신</li>
+          <li>직사광 · 주변시를 기준으로 한 색 위계와 경고 타일</li>
+        </ul>
+        <div class="tags"><a class="tag" href="#dashboard">운전자 계기판</a></div>
+      </article>
+      <article class="card skill reveal">
+        <h3>하드웨어 설계와 디버깅</h3>
+        <p class="stack">KiCad · 오실로스코프 · 멀티미터</p>
+        <ul>
+          <li>CAN 파형과 배선 · 종단저항을 재서 하드웨어 결함부터 판별</li>
+          <li>STM32F411 개발 보드 위에 얹는 확장 PCB 설계</li>
+        </ul>
+        <div class="tags"><a class="tag" href="#featured">FSK 차량 제어기</a><a class="tag" href="#synth">독립형 신디사이저</a></div>
+      </article>
+      <article class="card skill reveal">
+        <h3>데이터 · 서버 · AI 활용</h3>
+        <p class="stack">Python · MQTT · PostgreSQL · Claude Code</p>
+        <ul>
+          <li>차량 CAN 데이터를 Oracle Cloud 서버로 올려 차 밖에서 실시간 확인</li>
+          <li>AI 에이전트로 구현하고 대조 테스트로 검증하는 개발 방식</li>
+        </ul>
+        <div class="tags"><a class="tag" href="#dashboard">원격 모니터링</a><a class="tag" href="#keymento">KeyMento</a><a class="tag" href="#quant">자동매매 봇</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 FEATURED -->
+<section class="block" id="featured">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">03 / FEATURED</span>
+      <h2>대표 프로젝트</h2>
+    </div>
+
+    <article class="project reveal">
+      <p class="kicker">Vehicle Control · Formula Student Korea 2026 <span class="badge">FSK 종합 5위</span></p>
+      <h3>두 페달 센서가 어긋나면 100 ms 안에 토크를 끊는 차량 제어기</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2025.09 – 2026.08</dd>
+        <dt>팀</dt><dd>LIGHT-ON · 30인</dd>
+        <dt>역할</dt><dd>VCU 펌웨어(APPS 입력 처리 · CAN 토크 제어), 시험 환경 구성, 계기판 · 원격 모니터링</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">C</span><span class="chip">STM32</span><span class="chip">ADC</span><span class="chip">CAN</span><span class="chip">UART · VCP</span><span class="chip">오실로스코프</span><span class="chip">멀티미터</span></span></dd>
+      </dl>
+
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/fsk-apps-flow.png" alt="APPS1, APPS2 페달 센서 입력이 VCU에서 ADC 컷오프와 불일치 판정을 거쳐 CAN 토크 명령 또는 토크 차단으로 가는 구조도" loading="lazy"></div>
+        <figcaption>그림 1. 페달 입력에서 인버터까지. 두 채널 각각의 유효 범위, 두 위치의 차이, 토크 컷오프를 모두 거쳐야 명령이 나갑니다.</figcaption>
+      </figure>
+
+      <div class="pse">
+        <div class="problem">
+          <span class="label">문제</span>
+          <ul>
+            <li><b>규정</b> 두 페달 센서가 10% 이상 차이 나는 상태가 100 ms 이상 이어지면 모터 출력을 끊어야 했습니다.</li>
+            <li><b>페달 오차</b> 페달 위치가 완벽히 캘리브레이션되지 않았고, 발을 떼도 매번 정확히 0도로 돌아오지 않았습니다. 밟지 않았을 때는 차가 절대 나가지 않아야 했습니다.</li>
+            <li><b>실차 증상</b> 페달을 밟지 않았는데 차가 움직였습니다. 직접 만든 CLI로 보니 한 센서의 입력 전압이 높게 흔들렸고, 회로 팀원들과 함께 그 센서의 GND가 연결되지 않아 입력이 떠 있었다는 것을 찾았습니다.</li>
+            <li><b>검차 시간</b> 센서 값과 판정 결과를 그 자리에서 바로 보여 줄 수 있어야 했습니다.</li>
+          </ul>
+        </div>
+        <div class="solve">
+          <span class="label">해결</span>
+          <ul>
+            <li><b>불일치 판정</b> ADC를 1 kHz로 읽고, 차이가 10%를 넘는 샘플이 100개 연속되면 오류로 확정해 토크 명령을 0으로 보냈습니다. 순간 노이즈로는 차가 멈추지 않습니다.</li>
+            <li><b>ADC 컷오프</b> 채널마다 보정 범위(APPS1 0.42–3.05 V, APPS2 0.32–2.32 V)로 위치를 환산하고 범위 밖은 0% · 100%로 고정했습니다. 0.16–3.26 V를 벗어나면 단선이나 단락으로 판단합니다.</li>
+            <li><b>토크 컷오프</b> 계산된 토크 명령이 1500(최대 32767의 약 4.6%) 미만이면 0으로 보냈습니다. 페달이 완전히 돌아오지 않아도 차가 나가지 않습니다.</li>
+            <li><b>하드웨어 협업</b> 회로 팀원이 풀다운 저항으로 입력을 안정시켰고, 남는 흔들림은 제가 펌웨어에서 걸렀습니다. 원인은 하드웨어에서, 남은 오차는 펌웨어에서 나눠 막았습니다.</li>
+            <li><b>즉시 확인</b> UART를 가상 COM 포트로 연결해 터미널 CLI에서 두 채널의 원시값, 차이, 판정 타이머, CAN 송신 상태를 바로 볼 수 있게 했습니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="result"><b>10% · 100 ms</b><span>규정대로 불일치 판정 후 토크 차단</span></div>
+        <div class="result"><b>약 4.6%</b><span>토크 컷오프로 페달 오차에 의한 출발 방지</span></div>
+        <div class="result"><b>5위</b><span>FSK 2026 종합 순위</span></div>
+      </div>
+
+      <details class="more">
+        <summary>코드 · 검증 과정 · 하드웨어 자세히 보기</summary>
+        <div class="inner">
+<pre class="code"><span class="c">// apps.h (실제 코드 발췌)</span>
+<span class="k">#define</span> APPS_DIFF_MAX       100U   <span class="c">// per-mille, 10.0%</span>
+<span class="k">#define</span> APPS_FAULT_MS       100U   <span class="c">// 규정상 최대 비타당 시간</span>
+<span class="k">#define</span> APPS_TORQUE_CUTOFF  1500   <span class="c">// 이 미만 토크 명령은 0</span></pre>
+          <figure class="figure">
+            <div class="frame"><img src="assets/img/fsk-test-steps.png" alt="CAN 단독, ADC 단독, 통합 회로, PCB 제작, 실차 설치로 이어지는 검증 단계" loading="lazy"></div>
+            <figcaption>검증 단계. 기능별 시험 회로 → 통합 회로 → PCB → 실차 설치.</figcaption>
+          </figure>
+          <ul class="plain">
+            <li>CAN은 트랜시버와 120 Ω 종단저항을 단 회로에서, ADC는 로터리 입력으로 값을 바꿔 가며 CLI로 확인했습니다.</li>
+            <li>CAN 통신이 안 될 때는 오실로스코프로 버스 파형을, 멀티미터로 배선과 종단저항을 재서 하드웨어 결함인지 먼저 가렸습니다.</li>
+            <li>개별 시험을 모두 합친 회로에서 동작을 확인한 뒤 PCB로 제작해 자작차에 설치했습니다.</li>
+          </ul>
+          <div class="fig-row two">
+            <figure class="figure"><div class="frame photo"><img src="assets/img/fsk-vcu-pcb.png" alt="VCU PCB 레이아웃" loading="lazy"></div><figcaption>VCU PCB 레이아웃</figcaption></figure>
+            <figure class="figure"><div class="frame photo"><img src="assets/img/fsk-vcu-case.jpg" alt="케이스에 장착한 VCU 보드" loading="lazy"></div><figcaption>케이스에 장착한 VCU 보드</figcaption></figure>
+          </div>
+        </div>
+      </details>
+
+      <div class="links-row"><a href="https://github.com/LIGHT-ON-APPS" target="_blank" rel="noopener">코드 github.com/LIGHT-ON-APPS ↗</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- 04 PROJECTS -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">04 / PROJECTS</span>
+      <h2>프로젝트</h2>
+      <p>프로젝트마다 구조 → 문제 → 해결 → 결과 순서로 정리했습니다.</p>
+    </div>
+
+    <!-- 계기판 -->
+    <article class="project reveal" id="dashboard">
+      <p class="kicker">Embedded GUI · Formula Student Korea 2026 <span class="badge">대회 탑재</span></p>
+      <h3>검은 바탕에 숫자만 있던 계기판을 햇빛 아래에서 읽히게</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.07 – 2026.08</dd>
+        <dt>구성</dt><dd>차량 CAN(BMS · Bamocar 인버터) → STM32L432KC + TouchGFX → SPI → ILI9488 480×320 TFT</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">TouchGFX</span><span class="chip">STM32L432KC</span><span class="chip">ILI9488</span><span class="chip">CAN · SPI</span><span class="chip">Oracle Cloud · MQTT</span></span></dd>
+      </dl>
+      <figure class="figure">
+        <div class="fig-row sim">
+          <div class="frame photo"><img src="assets/img/dash-sim.png" alt="TouchGFX 시뮬레이터의 계기판 화면. 배터리, 셀 온도, 최소 셀 전압, 모터·인버터 온도, RPM 타일" loading="lazy"></div>
+          <div class="frame photo"><img src="assets/img/dash-car.jpg" alt="차량 스티어링 앞에 장착한 계기판" loading="lazy"></div>
+        </div>
+        <figcaption>그림 2. 실제 계기판 화면(왼쪽, TouchGFX 시뮬레이터)과 차량에 장착한 모습(오른쪽).</figcaption>
+      </figure>
+      <div class="pse">
+        <div class="problem"><span class="label">문제</span><ul>
+          <li>처음 화면은 검은 바탕에 숫자만 나열한 형태라 주행 중 한눈에 읽기 어려웠습니다. 백라이트는 이미 최대 밝기라 바꿀 수 있는 것은 색과 배치뿐이었습니다.</li>
+          <li>모터 · 인버터(IGBT) · 배터리 셀 온도를 주행 중에도 한눈에 파악해야 했지만, 이 정보는 운전자만 볼 수 있어 차 밖의 팀원은 상태를 알 수 없었습니다.</li>
+          <li>RAM 64 KB는 480×320 화면 한 장(약 300 KB)의 5분의 1 수준이라 화면 출력이 늦어지고 애니메이션에 제약이 컸습니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">해결</span><ul>
+          <li><b>배치</b> RPM 게이지를 가운데 두고, 시프트 라이트를 칸으로 나눠 주변시로도 셀 수 있게 했습니다. 70 / 86 / 96% 구간에서 노랑, 빨강, 점멸로 바뀝니다.</li>
+          <li><b>밝은 테마</b> 어두운 화면은 하늘과 헬멧이 비치고 밝은 글자가 번져 보여 밝은 바탕으로 바꾸고, RPM 숫자를 가장 진하게 해 시선 순서를 정했습니다.</li>
+          <li><b>경고 표시</b> 온도가 임계를 넘으면 글자색이 아니라 타일 배경 전체를 칠합니다. 페달 · ADC 값은 CLI로 옮기고, 끊긴 값은 --로 표시했습니다.</li>
+          <li><b>갱신 비용</b> TouchGFX 부분 프레임 버퍼(4.8 KB 블록 3개)로 바뀐 영역만 그려 SPI로 보냈습니다.</li>
+        </ul></div>
+      </div>
+      <details class="more">
+        <summary>AI 활용 · 원격 모니터링 자세히 보기</summary>
+        <div class="inner">
+          <p><b>AI 활용</b> 디자이너가 없어 실제 자동차 계기판 디자인을 모아 Claude Code가 종합해 시안을 만들게 하고, 저는 SPI LCD 부분 갱신 방식에 집중했습니다. 링 각도는 눈금 단위로 끊고, 경고 타일은 색이 바뀔 때만 통째로 다시 그리고, 고정 라벨은 갱신 영역 밖에 두는 방식을 각각 AI로 빠르게 구현해 실제 화면에서 비교 · 검증했습니다.</p>
+          <p><b>원격 모니터링</b> Monolith 로거(TMA-1)가 수집한 차량 CAN 데이터를 Wi-Fi로 Oracle Cloud 서버에 올려 차 밖에서도 실시간으로 보고, 원본은 직접 만든 수집기로 PostgreSQL에 쌓았습니다.</p>
+        </div>
+      </details>
+      <div class="links-row"><a href="https://github.com/LIGHT-ON-APPS" target="_blank" rel="noopener">코드 github.com/LIGHT-ON-APPS ↗</a></div>
+    </article>
+
+    <!-- 레시펫 -->
+    <article class="project reveal" id="recipet">
+      <p class="kicker">RTOS Control · 서울 영커리언스 챌린지 <span class="badge">우수상 · 캡스톤 와우상</span></p>
+      <h3>FreeRTOS로 장치를 나눠 포장 사이클을 9초로 줄인 자동화 장비</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.03.24 – 2026.06.06</dd>
+        <dt>팀</dt><dd>8인 · 기계, 신소재, 전기전자, 컴퓨터공학</dd>
+        <dt>역할</dt><dd>STM32 제어 소프트웨어 (리니어 레일 · 위치 센서 · 서보 모터 · 펌프)</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">STM32G474</span><span class="chip">FreeRTOS</span><span class="chip">PWM</span><span class="chip">GPIO</span><span class="chip">멀티미터</span></span></dd>
+      </dl>
+      <div class="split">
+        <figure class="figure">
+          <div class="frame"><img src="assets/img/recipet-tasks.png" alt="STM32G474 FreeRTOS 공정 순서 태스크와 레일, 위치 센서, 서보, 펌프 태스크 구조" loading="lazy"></div>
+          <figcaption>그림 3. 장치별 태스크와 공정 순서. 다음 장치는 레일 위치 신호를 받은 뒤에 시작합니다.</figcaption>
+        </figure>
+        <figure class="figure">
+          <div class="frame photo"><img src="assets/img/recipet-machine.png" alt="제작한 포장 자동화 장비" loading="lazy"></div>
+          <figcaption>제작한 포장 자동화 장비</figcaption>
+        </figure>
+      </div>
+      <div class="pse">
+        <div><span class="label">배경</span><p>서울시가 주최하는 프로그램으로, 학생 팀이 기업의 기술 문제를 찾아 해결합니다. 협업 기업 레시펫은 반려동물 식품의 소분과 포장을 수작업으로 하고 있었습니다.</p></div>
+        <div class="problem"><span class="label">문제</span><ul>
+          <li>공정을 분석해 보니 소분 공정 안의 포장 작업이 가장 오래 걸려 병목이었습니다. 이를 근거로 한 사이클 11.33초를 목표로 제시해 기업과 합의했습니다.</li>
+          <li>대표님이 이후에도 장비를 발전시킬 계획이 있어, 기능을 추가하기 쉬운 구조가 필요했습니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">해결</span><ul>
+          <li><b>장치별 태스크</b> 레일, 위치 센서, 서보 모터, 펌프를 각각의 태스크로 나눠, 고치거나 장치를 추가할 때 다른 부분을 건드리지 않게 했습니다.</li>
+          <li><b>확장 대비</b> 받침대를 달면 여러 장치가 동시에 움직여야 시간이 더 줄어듭니다. 순서 제어를 다시 짜지 않도록 처음부터 RTOS 구조로 만들었습니다.</li>
+          <li><b>이벤트 전환</b> 정해진 시간을 기다리지 않고 적외선 센서가 작업 위치 도착을 알리면 다음 단계로 넘어갑니다. 센서 태스크 우선순위를 높여 레일이 움직이는 동안에도 신호를 놓치지 않게 했습니다.</li>
+          <li><b>배선 점검</b> 멀티미터로 전원과 신호선을 재서 배선 문제인지 코드 문제인지 먼저 나눴습니다.</li>
+        </ul></div>
+      </div>
+      <div class="results">
+        <div class="result"><b>9초</b><span>한 사이클, 목표 11.33초 대비 약 21% 단축</span></div>
+        <div class="result"><b>D-1</b><span>제출 기한 하루 전 SUS304 장비 완성</span></div>
+        <div class="result"><b>2건</b><span>공모전 우수상 · 교내 캡스톤 와우상</span></div>
+      </div>
+      <details class="more">
+        <summary>공정 상태도 · 협업 · 수상 자세히 보기</summary>
+        <div class="inner">
+          <figure class="figure">
+            <div class="frame"><img src="assets/img/recipet-state-sketch.png" alt="직접 손으로 그린 공정 상태도" loading="lazy"></div>
+            <figcaption>직접 그린 공정 상태도. 정지 시 깔때기 상승 → 봉투 놓기 → 스텝 모터 복귀 후 멈추고, 비상장치는 어디서든 전원을 끊습니다.</figcaption>
+          </figure>
+          <p><b>협업</b> 식품 공장 적용을 고려해 SUS304 스테인리스강으로 제작할지, 시제품으로 기능 확인부터 받을지를 두고 의견이 갈렸습니다. 각 파트가 기한 안에 끝낼 수 있는 작업을 먼저 확인하자고 제안했고, 정해진 우선순위에 맞춰 제어 코드를 완성했습니다.</p>
+          <table class="awards">
+            <thead><tr><th>시기</th><th>대회</th><th>결과</th></tr></thead>
+            <tbody>
+              <tr><td>2026.06</td><td>서울 영커리언스 챌린지 · 주관 ㈜퍼플앤커리어그룹</td><td>우수상</td></tr>
+              <tr><td>2026.10</td><td>홍익대학교 제20회 공과대학 창의적 종합설계 경진대회 · 같은 장비를 캡스톤 디자인으로 출품</td><td>와우상</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="links-row"><a href="https://github.com/Seoul-Young-Careers" target="_blank" rel="noopener">코드 github.com/Seoul-Young-Careers ↗</a><a href="https://www.youtube.com/watch?v=yQSTGEwrlo8" target="_blank" rel="noopener">시연 영상 ↗</a></div>
+    </article>
+
+    <!-- MIDI -->
+    <article class="project reveal" id="midi">
+      <p class="kicker">Driver · 개인 프로젝트</p>
+      <h3>음원 칩이 준비됐을 때만 명령을 보내는 VS1053 드라이버</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2024.12 – 2025.05</dd>
+        <dt>형태</dt><dd>1인 개발 · 드라이버와 명령행 인터페이스(CLI)</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">C</span><span class="chip">STM32F411</span><span class="chip">SPI</span><span class="chip">UART</span><span class="chip">MIDI</span><span class="chip">USB CDC</span><span class="chip">VS1053</span></span></dd>
+      </dl>
+      <div class="split">
+        <figure class="figure">
+          <div class="frame"><img src="assets/img/midi-arch.png" alt="PC USB CDC에서 STM32F411 CLI로, SPI 레지스터 제어와 UART MIDI 메시지로 VS1053을 제어하는 구조" loading="lazy"></div>
+          <figcaption>그림 4. 제어 경로(SPI)와 연주 경로(UART)를 나눈 구조. 레지스터 쓰기 전후에는 항상 DREQ를 확인합니다.</figcaption>
+        </figure>
+        <figure class="figure">
+          <div class="frame photo"><img src="assets/img/midi-board.jpg" alt="STM32 보드와 VS1053 모듈을 연결한 시제품 기판" loading="lazy"></div>
+          <figcaption>시제품 보드</figcaption>
+        </figure>
+      </div>
+      <div class="pse">
+        <div class="problem"><span class="label">문제</span><ul>
+          <li>VS1053은 명령을 처리하는 동안 새 입력을 받지 못하고 그 상태를 DREQ 핀으로 알립니다. 처리 중에 보낸 레지스터 명령은 무시되거나 깨질 수 있습니다.</li>
+          <li>실시간 MIDI 기능은 패치를 레지스터 쓰기 수백 번으로 올려야 동작하고, 하나만 놓쳐도 패치 전체가 깨집니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">해결</span><ul>
+          <li>모든 레지스터 쓰기 · 읽기 앞뒤로 DREQ가 High인지 확인하고, 칩이 응답하지 않아도 보드가 멈추지 않게 2초 타임아웃을 두었습니다.</li>
+          <li>초기화 순서를 하드웨어 리셋 → 소프트웨어 리셋 → 클록 설정 → 패치 로드로 고정했습니다.</li>
+          <li>패치를 올린 뒤 MIDI 음은 UART(31250 baud)로 보내 제어 경로와 연주 경로를 분리했습니다.</li>
+          <li>USB CDC 명령으로 레지스터 조회(SPI 경로)와 사인파 테스트(오디오 출력)를 따로 확인할 수 있게 했습니다.</li>
+        </ul></div>
+        <div><span class="label">결과</span><p>하나의 CLI에서 레지스터 조회, 테스트음, 음색 선택, 드럼 연주를 실행할 수 있게 됐고, 소리가 나지 않을 때 SPI 제어 문제인지 오디오 경로 문제인지 명령 하나로 나눠 볼 수 있습니다.</p></div>
+      </div>
+      <div class="links-row"><a href="https://github.com/turn-world-Synthesizer" target="_blank" rel="noopener">코드 github.com/turn-world-Synthesizer ↗</a></div>
+    </article>
+
+    <!-- 독립형 신디 -->
+    <article class="project reveal" id="synth">
+      <p class="kicker">Hardware Design · 개인 프로젝트 <span class="badge live">PCB 설계 중</span></p>
+      <h3>PC 없이 연주할 수 있는 독립형 신디사이저 설계</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.10 – 진행 중</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">STM32F411</span><span class="chip">KiCad</span></span></dd>
+      </dl>
+      <p style="color:var(--ink-2);margin:0 0 20px">첫 버전은 컴퓨터의 USB 전원과 단일 MCU에 기대고 있었고, 악기를 바꾸거나 드럼을 칠 때마다 PC에서 명령을 입력해야 했습니다. 컴퓨터 없이 조작할 수 있도록 입력 장치와 확장 보드를 새로 설계하고 있습니다.</p>
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/synth-arch.png" alt="버튼, 로터리 엔코더, 스위치 입력이 STM32F411 메뉴 상태와 MIDI 이벤트 생성을 거쳐 오디오 출력으로 가는 구조" loading="lazy"></div>
+        <figcaption>그림 5. 제한된 입력 장치로 기능을 고르고, MIDI 이벤트를 보이스 단위로 처리하는 구조.</figcaption>
+      </figure>
+      <div class="pse">
+        <div><span class="label">과제</span><p>한정된 버튼과 노브로 연주, 패턴 기록, 악기 선택, 설정을 모두 다뤄야 합니다. 개발 보드에 남는 GPIO 수, 부품별 동작 전압, 주변장치 통신 방식도 함께 맞춰야 했습니다.</p></div>
+        <div class="solve"><span class="label">진행</span><ul>
+          <li>4×8 버튼 패드, 노브 3개, 5방향 스위치로 PAD · PATTERN · STEP 세 모드를 오가는 패널을 구상했습니다.</li>
+          <li>KiCad에서 STM32F411 개발 보드 위에 얹는 확장 PCB를 설계하며 사용 가능한 핀과 부품 전압을 대조하고 있습니다.</li>
+          <li>전원 구성, MCU 간 역할 분담, SPI · UART 인터페이스를 데이터시트를 근거로 정하고, 디스플레이와 오디오 출력까지 고려해 설계하고 있습니다.</li>
+        </ul></div>
+      </div>
+      <details class="more">
+        <summary>패널 구상 · 전원부 회로도 보기</summary>
+        <div class="inner">
+          <figure class="figure">
+            <div class="frame"><img src="assets/img/synth-panel-power.png" alt="손으로 그린 패널 구상과 KiCad 전원부 회로도" loading="lazy"></div>
+            <figcaption>직접 그린 패널 구상(왼쪽)과 KiCad로 설계 중인 전원부 회로도(오른쪽).</figcaption>
+          </figure>
+        </div>
+      </details>
+    </article>
+
+    <!-- KeyMento -->
+    <article class="project reveal" id="keymento">
+      <p class="kicker">Team Project · KeyMento <span class="badge live">진행 중</span></p>
+      <h3>겹친 음을 걸러 화음을 판정하는 AR 피아노 학습 시스템</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.04 – 진행 중</dd>
+        <dt>팀</dt><dd>4인 · AR 피아노 학습 시스템</dd>
+        <dt>역할</dt><dd>전체 구성, MIDI 판정 세션 (연습 모드 · 화음 판정)</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">MIDI</span></span></dd>
+      </dl>
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/keymento-flow.png" alt="트랙 A와 트랙 B의 음을 합쳐 화음 정답을 만들고 연습 모드에서 판정하는 흐름" loading="lazy"></div>
+        <figcaption>그림 6. 트랙 병합에서 연습 모드 판정까지. 고치기 전에는 두 트랙의 도가 정답에 두 번 들어가 같은 건반을 두 번 눌러야 정답이 됐습니다.</figcaption>
+      </figure>
+      <div class="pse">
+        <div class="problem"><span class="label">문제</span><p>여러 MIDI 트랙에서 같은 시점에 같은 음이 나오면 그 음이 화음 정답에 두 번 들어가, 맞게 쳐도 오답으로 처리됐습니다.</p></div>
+        <div class="solve"><span class="label">해결</span><p>중복 검사 범위를 곡 전체가 아니라 화음 하나로 정해, 한 화음 안에서 겹치는 음만 걸렀습니다. 다른 시점의 같은 음은 그대로 둡니다.</p></div>
+        <div><span class="label">결과</span><p>트랙 A의 도 · 미와 트랙 B의 도 · 솔을 합치면 정답은 도 · 미 · 솔이 되고, 건반을 한 번만 누르면 정답으로 판정됩니다. 지금은 웹캠 시선 분석으로 AR 안내와 화면 악보를 비교하는 사용자 실험과 논문을 준비하고 있습니다.</p></div>
+      </div>
+    </article>
+
+    <!-- Quant -->
+    <article class="project reveal" id="quant">
+      <p class="kicker">AI-assisted · 개인 프로젝트 <span class="badge live">운영 중</span></p>
+      <h3>AI 에이전트로 만들고 대조 테스트로 검증한 24시간 자동매매 봇</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.04 – 진행 중</dd>
+        <dt>형태</dt><dd>개인 · 리눅스 서버에서 24시간 가동</dd>
+        <dt>구성</dt><dd>Python 전략 검증 → C# 실행 봇 · 보기 전용 대시보드</dd>
+        <dt>AI</dt><dd><span class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ChatGPT</span></span></dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">C# (.NET)</span><span class="chip">pandas</span><span class="chip">systemd</span><span class="chip">Telegram</span></span></dd>
+      </dl>
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/quant-reconcile.png" alt="매 tick마다 거래소 포지션과 장부를 대조해 어긋나면 신규 진입을 잠그는 구조" loading="lazy"></div>
+        <figcaption>그림 7. 매 tick의 장부 대조. 차량 제어기의 페달 센서처럼 어긋나면 멈추는 쪽을 택합니다. 전략 판단은 비공개입니다.</figcaption>
+      </figure>
+      <div class="pse">
+        <div><span class="label">AI 활용</span><ul>
+          <li>구현과 C# 이관은 Claude Code, 일부 기능은 Codex가 맡고 백테스트 해석은 ChatGPT로 교차 검토했습니다. 커밋 509개 중 490개를 AI와 함께 썼습니다.</li>
+          <li>AI가 지킬 규칙을 CLAUDE.md · AGENTS.md로 정리했습니다. 사고에서 나온 방어 코드는 지우지 않기, 모르는 값은 0이 아니라 null로 두기 같은 것입니다.</li>
+        </ul></div>
+        <div class="problem"><span class="label">문제</span><ul>
+          <li>한 전략의 주기 실행(tick)에서 난 예외 하나가 스케줄러 전체를 72분 동안 멈춰, 다른 전략의 청산까지 함께 멈췄습니다.</li>
+          <li>장부에 수량 0인 빈 포지션이 남아 대조 단계가 예외를 던졌고, 신규 진입이 8일 동안 잠겼습니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">해결</span><ul>
+          <li>tick마다 예외를 격리해 하나가 실패해도 나머지는 돌게 하고, 같은 실패가 반복되면 텔레그램으로 알리게 했습니다.</li>
+          <li>거래소를 기준, 장부를 캐시로 두고 매 tick 대조해 어긋나면 신규 진입만 잠급니다. 장부는 임시 파일에 쓴 뒤 이름을 바꿔(double buffer + swap) 쓰는 도중 꺼져도 깨지지 않습니다.</li>
+        </ul></div>
+      </div>
+      <div class="results">
+        <div class="result"><b>261건</b><span>Python과 C#의 7년치 거래가 모두 일치</span></div>
+        <div class="result"><b>1,800+</b><span>장애 재현을 포함한 자동 테스트</span></div>
+        <div class="result"><b>490 / 509</b><span>AI와 함께 쓴 커밋</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 05 APPROACH -->
+<section class="block" id="approach">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">05 / APPROACH</span>
+      <h2>프로젝트에서 반복한 작업 방식</h2>
+    </div>
+    <div class="ways">
+      <div class="card way reveal"><h3>INPUT</h3><strong>잘못된 입력부터 대비합니다</strong><p>페달 센서는 유효 범위와 두 채널의 차이를 확인하고, 작은 토크 명령은 컷오프로 걸러 의도하지 않은 출발을 막았습니다.</p></div>
+      <div class="card way reveal"><h3>TIMING</h3><strong>시간보다 신호를 기준으로</strong><p>레일 도착 신호로 다음 장치를 시작했고, 음원 칩의 DREQ를 확인한 뒤에 명령을 보냈습니다.</p></div>
+      <div class="card way reveal"><h3>DEBUG</h3><strong>확인할 수단을 먼저 만듭니다</strong><p>기능마다 시험 회로와 CLI를 만들고, 통신이 안 되면 오실로스코프와 멀티미터로 하드웨어부터 가렸습니다.</p></div>
+      <div class="card way reveal"><h3>COLLAB</h3><strong>증상을 데이터로 공유합니다</strong><p>CLI로 본 전압을 회로 팀원들과 함께 보며 원인을 좁혔고, 회로는 풀다운 저항으로, 남은 흔들림은 펌웨어로 나눠 막았습니다.</p></div>
+      <div class="card way reveal"><h3>MAINTAIN</h3><strong>다음에 고칠 사람을 생각합니다</strong><p>포장 장비는 계속 발전시킬 계획이 있어 장치마다 태스크를 나누고 받침대 추가 같은 확장을 미리 고려했습니다.</p></div>
+      <div class="card way reveal"><h3>USER</h3><strong>보는 사람의 환경에 맞춥니다</strong><p>운전자 계기판은 직사광과 주변시를 기준으로, 검차용 정보는 CLI로 나눠 각자 필요한 값만 보이게 했습니다.</p></div>
+    </div>
+    <div class="goal reveal">
+      <h3>하고 싶은 일</h3>
+      <p>센서 입력으로 구동 모듈을 움직이는 시스템은 입력이 틀리거나 통신이 끊겨도 스스로 안전하게 버텨야 합니다. FreeRTOS로 장치를 태스크로 나누고 CAN · SPI · UART로 모듈 간 통신을 직접 구현한 경험을 살려, MCU 기반 실시간 펌웨어 개발과 RTOS · HAL 포팅, 모듈 간 인터페이스 정의 · 구현을 맡고 싶습니다.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h2>조용준</h2>
+      <p>임베디드 펌웨어 엔지니어</p>
+    </div>
+    <ul class="contact">
+      <li><a href="mailto:cho0040@naver.com">cho0040@naver.com</a></li>
+      <li><a href="https://github.com/turn-world" target="_blank" rel="noopener">github.com/turn-world</a></li>
+      <li><a class="top" href="#top">맨 위로 ↑</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+    window.addEventListener('beforeprint', function () { document.querySelectorAll('details').forEach(function (d) { d.open = true; }); });
+  })();
+</script>
+</body>
+</html>
