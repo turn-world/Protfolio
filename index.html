@@ -89,7 +89,19 @@
     <div class="sec-head reveal">
       <span class="num">02 / SKILLS</span>
       <h2>프로젝트로 익힌 기술</h2>
-      <p>기술 이름보다 어디에 썼는지를 기준으로 묶었습니다.</p>
+      <p>한눈에 보는 기술 스택과, 프로젝트에서 어디에 썼는지를 함께 정리했습니다.</p>
+    </div>
+    <div class="card stackbox reveal">
+      <h3>기술 스택</h3>
+      <dl class="stacklist">
+        <dt>언어</dt><dd><span class="chip">C</span><span class="chip">C++</span><span class="chip">Python</span></dd>
+        <dt>MCU · 보드</dt><dd><span class="chip">STM32G474</span><span class="chip">STM32F411</span><span class="chip">STM32L432KC</span><span class="chip">Raspberry Pi</span></dd>
+        <dt>RTOS · GUI</dt><dd><span class="chip">FreeRTOS</span><span class="chip">TouchGFX</span></dd>
+        <dt>주변장치 · 통신</dt><dd><span class="chip">CAN</span><span class="chip">SPI</span><span class="chip">UART</span><span class="chip">USB CDC</span><span class="chip">ADC</span><span class="chip">PWM</span><span class="chip">GPIO</span><span class="chip">MIDI</span></dd>
+        <dt>하드웨어 · 계측</dt><dd><span class="chip">KiCad</span><span class="chip">오실로스코프</span><span class="chip">멀티미터</span></dd>
+        <dt>데이터 · 서버</dt><dd><span class="chip">OpenCV</span><span class="chip">MQTT</span><span class="chip">PostgreSQL</span><span class="chip">Oracle Cloud</span><span class="chip">systemd</span></dd>
+        <dt>AI · 협업 도구</dt><dd><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ChatGPT</span><span class="chip">Git · GitHub</span></dd>
+      </dl>
     </div>
     <div class="skills">
       <article class="card skill reveal">
@@ -539,10 +551,6 @@
       <div class="card way reveal"><h3>COLLAB</h3><strong>증상을 데이터로 공유합니다</strong><p>CLI로 본 전압을 회로 팀원들과 함께 보며 원인을 좁혔고, 회로는 풀다운 저항으로, 남은 흔들림은 펌웨어로 나눠 막았습니다.</p></div>
       <div class="card way reveal"><h3>MAINTAIN</h3><strong>다음에 고칠 사람을 생각합니다</strong><p>포장 장비는 계속 발전시킬 계획이 있어 장치마다 태스크를 나누고 받침대 추가 같은 확장을 미리 고려했습니다.</p></div>
       <div class="card way reveal"><h3>USER</h3><strong>보는 사람의 환경에 맞춥니다</strong><p>운전자 계기판은 직사광과 주변시를 기준으로, 검차용 정보는 CLI로 나눠 각자 필요한 값만 보이게 했습니다.</p></div>
-    </div>
-    <div class="goal reveal">
-      <h3>하고 싶은 일</h3>
-      <p>센서 입력으로 구동 모듈을 움직이는 시스템은 입력이 틀리거나 통신이 끊겨도 스스로 안전하게 버텨야 합니다. FreeRTOS로 장치를 태스크로 나누고 CAN · SPI · UART로 모듈 간 통신을 직접 구현한 경험을 살려, MCU 기반 실시간 펌웨어 개발과 RTOS · HAL 포팅, 모듈 간 인터페이스 정의 · 구현을 맡고 싶습니다.</p>
     </div>
   </div>
 </section>

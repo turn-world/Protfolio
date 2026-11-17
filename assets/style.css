@@ -211,3 +211,11 @@ footer p { margin: 0; color: var(--ink-2); }
 ul.plain { margin: 0; padding-left: 18px; font-size: 15px; color: var(--ink-2); }
 ul.plain li + li { margin-top: 6px; }
 details.more p { font-size: 15px; color: var(--ink-2); margin: 0; }
+
+.stackbox { padding: 24px 26px; margin-bottom: 16px; }
+.stackbox h3 { margin: 0 0 14px; font-size: 18px; letter-spacing: -.02em; }
+.stacklist { margin: 0; display: grid; grid-template-columns: 120px 1fr; gap: 10px 16px; align-items: baseline; }
+.stacklist dt { color: var(--ink-3); font-size: 14px; }
+.stacklist dd { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.stacklist .chip { font-size: 12.5px; padding: 3px 10px; background: var(--bg); border: 1px solid var(--line); color: var(--ink); }
+@media (max-width: 600px) { .stacklist { grid-template-columns: 1fr; gap: 4px; } .stacklist dd { margin-bottom: 10px; } }
