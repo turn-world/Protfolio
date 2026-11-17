@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>자동매매 봇 | 조용준</title>
+<meta name="description" content="AI 에이전트로 만들고 대조 테스트로 검증한 24시간 자동매매 봇의 구조와 안전장치.">
+<meta property="og:title" content="자동매매 봇 | 조용준">
+<meta property="og:description" content="AI 에이전트로 만들고 대조 테스트로 검증한 24시간 자동매매 봇의 구조와 안전장치.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/dash-car.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231d1d1b'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'%3Eyj%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">yj<span>.</span></a>
+    <ul>
+      <li><a href="index.html#featured">펌웨어 프로젝트</a></li>
+      <li><a href="index.html#more">그 밖의 프로젝트</a></li>
+      <li><a href="index.html#contact">연락</a></li>
+    </ul>
+    <a class="gh" href="https://github.com/turn-world" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="subhead" id="top">
+  <div class="wrap">
+    <a class="back" href="index.html#more">← 포트폴리오로 돌아가기</a>
+    <p class="eyebrow">More Projects / 02 · Quant</p>
+  </div>
+</section>
+<section class="block" style="border-top:0;padding-top:0">
+  <div class="wrap">
+    
+    <article class="project reveal" id="quant">
+      <p class="kicker">AI-assisted · 개인 프로젝트 <span class="badge live">운영 중</span></p>
+      <h3>AI 에이전트로 만들고 대조 테스트로 검증한 24시간 자동매매 봇</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.04 – 진행 중</dd>
+        <dt>형태</dt><dd>개인 · 리눅스 서버에서 24시간 가동</dd>
+        <dt>구성</dt><dd>Python 전략 검증 → C# 실행 봇 · 보기 전용 대시보드</dd>
+        <dt>AI</dt><dd><span class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ChatGPT</span></span></dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">C# (.NET)</span><span class="chip">pandas</span><span class="chip">systemd</span><span class="chip">Telegram</span></span></dd>
+      </dl>
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/quant-reconcile.png" alt="매 tick마다 거래소 포지션과 장부를 대조해 어긋나면 신규 진입을 잠그는 구조" loading="lazy"></div>
+        <figcaption>그림 1. 매 tick의 장부 대조. 차량 제어기의 페달 센서처럼 어긋나면 멈추는 쪽을 택합니다. 전략 판단은 비공개입니다.</figcaption>
+      </figure>
+      <div class="pse">
+        <div><span class="label">AI 활용</span><ul>
+          <li>구현과 C# 이관은 Claude Code, 일부 기능은 Codex가 맡고 백테스트 해석은 ChatGPT로 교차 검토했습니다. 커밋 509개 중 490개를 AI와 함께 썼습니다.</li>
+          <li>AI가 지킬 규칙을 CLAUDE.md · AGENTS.md로 정리했습니다. 사고에서 나온 방어 코드는 지우지 않기, 모르는 값은 0이 아니라 null로 두기 같은 것입니다.</li>
+        </ul></div>
+        <div class="problem"><span class="label">문제</span><ul>
+          <li>한 전략의 주기 실행(tick)에서 난 예외 하나가 스케줄러 전체를 72분 동안 멈춰, 다른 전략의 청산까지 함께 멈췄습니다.</li>
+          <li>장부에 수량 0인 빈 포지션이 남아 대조 단계가 예외를 던졌고, 신규 진입이 8일 동안 잠겼습니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">해결</span><ul>
+          <li>tick마다 예외를 격리해 하나가 실패해도 나머지는 돌게 하고, 같은 실패가 반복되면 텔레그램으로 알리게 했습니다.</li>
+          <li>거래소를 기준, 장부를 캐시로 두고 매 tick 대조해 어긋나면 신규 진입만 잠급니다. 장부는 임시 파일에 쓴 뒤 이름을 바꿔(double buffer + swap) 쓰는 도중 꺼져도 깨지지 않습니다.</li>
+        </ul></div>
+      </div>
+      <div class="results">
+        <div class="result"><b>261건</b><span>Python과 C#의 7년치 거래가 모두 일치</span></div>
+        <div class="result"><b>1,800+</b><span>장애 재현을 포함한 자동 테스트</span></div>
+        <div class="result"><b>490 / 509</b><span>AI와 함께 쓴 커밋</span></div>
+      </div>
+      <div class="links-row"><a href="https://github.com/quantams/Quant" target="_blank" rel="noopener">코드 github.com/quantams/Quant ↗</a></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h2>조용준</h2>
+      <p>임베디드 펌웨어 엔지니어</p>
+    </div>
+    <ul class="contact">
+      <li><a href="mailto:cho0040@naver.com">cho0040@naver.com</a></li>
+      <li><a href="https://github.com/turn-world" target="_blank" rel="noopener">github.com/turn-world</a></li>
+      <li><a class="top" href="#top">맨 위로 ↑</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+    window.addEventListener('beforeprint', function () { document.querySelectorAll('details').forEach(function (d) { d.open = true; }); });
+  })();
+</script>
+</body>
+</html>

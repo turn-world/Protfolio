@@ -25,6 +25,7 @@
       <li><a href="#skills">기술</a></li>
       <li><a href="#featured">대표 프로젝트</a></li>
       <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#more">그 밖의 프로젝트</a></li>
       <li><a href="#approach">작업 방식</a></li>
       <li><a href="#contact">연락</a></li>
     </ul>
@@ -76,7 +77,7 @@
       <li><time>2025.07 – 2025.09</time><div><h3>시스템 반도체 SW 개발 기초</h3><p>코멘토 · 디바이스 드라이버 개발 교육</p></div></li>
       <li><time>2025.09 – 2026.08</time><div><h3><a href="#featured">Formula Student Korea 2026 · LIGHT-ON</a></h3><p>30인 팀 · VCU 펌웨어(APPS · CAN 토크 제어), 운전자 계기판, 원격 모니터링 · 종합 5위</p></div></li>
       <li><time>2026.03 – 2026.06</time><div><h3><a href="#recipet">서울 영커리언스 챌린지 · 레시펫</a></h3><p>8인 팀 · FreeRTOS 포장 자동화 장비 제어 · 우수상</p></div></li>
-      <li><time>2026.04 – 현재</time><div><h3><a href="#keymento">KeyMento</a> · <a href="#quant">자동매매 봇</a></h3><p>AR 피아노 학습 시스템(4인) 구상 · 설계 · 개인 자동매매 봇 운영</p></div></li>
+      <li><time>2026.04 – 현재</time><div><h3><a href="keymento.html">KeyMento</a> · <a href="quant.html">자동매매 봇</a></h3><p>AR 피아노 학습 시스템(4인) 구상 · 설계 · 개인 자동매매 봇 운영</p></div></li>
       <li class="on"><time>2026.10 – 현재</time><div><h3><a href="#synth">독립형 신디사이저 설계</a></h3><p>개인 · KiCad 확장 보드 PCB 설계 중 · 같은 달 교내 캡스톤 와우상(레시펫 장비)</p></div></li>
       <li><time>2027.02</time><div><h3>홍익대학교 졸업 예정</h3><p>컴퓨터공학과 · 부전공 전자전기공학부</p></div></li>
     </ol>
@@ -149,13 +150,13 @@
         <div class="tags"><a class="tag" href="#featured">FSK 차량 제어기</a><a class="tag" href="#synth">독립형 신디사이저</a></div>
       </article>
       <article class="card skill reveal">
-        <h3>데이터 · 서버 · AI 활용</h3>
-        <p class="stack">Python · MQTT · PostgreSQL · Claude Code</p>
+        <h3>데이터 · 서버 · 영상 처리</h3>
+        <p class="stack">Python · MQTT · PostgreSQL · OpenCV</p>
         <ul>
           <li>차량 CAN 데이터를 Oracle Cloud 서버로 올려 차 밖에서 실시간 확인</li>
-          <li>AI 에이전트로 구현하고 대조 테스트로 검증하는 개발 방식</li>
+          <li>웹캠으로 건반 위치를 잡아(ArUco · 호모그래피) 다음 음을 건반 위에 표시</li>
         </ul>
-        <div class="tags"><a class="tag" href="#dashboard">원격 모니터링</a><a class="tag" href="#keymento">KeyMento</a><a class="tag" href="#quant">자동매매 봇</a></div>
+        <div class="tags"><a class="tag" href="#dashboard">원격 모니터링</a><a class="tag" href="keymento.html">KeyMento</a><a class="tag" href="quant.html">자동매매 봇</a></div>
       </article>
     </div>
   </div>
@@ -235,7 +236,7 @@
         </div>
       </details>
 
-      <div class="links-row"><a href="https://github.com/LIGHT-ON-APPS" target="_blank" rel="noopener">코드 github.com/LIGHT-ON-APPS ↗</a></div>
+      <div class="links-row"><a href="https://github.com/LIGHT-ON-APPS/LIGTH-ON" target="_blank" rel="noopener">코드 github.com/LIGHT-ON-APPS/LIGTH-ON ↗</a></div>
     </article>
   </div>
 </section>
@@ -285,7 +286,7 @@
           <p><b>원격 모니터링</b> Monolith 로거(TMA-1)가 수집한 차량 CAN 데이터를 Wi-Fi로 Oracle Cloud 서버에 올려 차 밖에서도 실시간으로 보고, 원본은 직접 만든 수집기로 PostgreSQL에 쌓았습니다.</p>
         </div>
       </details>
-      <div class="links-row"><a href="https://github.com/LIGHT-ON-APPS" target="_blank" rel="noopener">코드 github.com/LIGHT-ON-APPS ↗</a></div>
+      <div class="links-row"><a href="https://github.com/LIGHT-ON-APPS/LIGTH-ON-DISPLAY" target="_blank" rel="noopener">코드 github.com/LIGHT-ON-APPS/LIGTH-ON-DISPLAY ↗</a></div>
     </article>
 
     <!-- 레시펫 -->
@@ -298,14 +299,18 @@
         <dt>역할</dt><dd>STM32 제어 소프트웨어 (리니어 레일 · 위치 센서 · 서보 모터 · 펌프)</dd>
         <dt>기술</dt><dd><span class="chips"><span class="chip">STM32G474</span><span class="chip">FreeRTOS</span><span class="chip">PWM</span><span class="chip">GPIO</span><span class="chip">멀티미터</span></span></dd>
       </dl>
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/recipet-tasks.png" alt="STM32G474 FreeRTOS 공정 순서 태스크와 레일, 위치 센서, 서보, 펌프 태스크 구조" loading="lazy"></div>
+        <figcaption>그림 3. 장치별 태스크와 공정 순서. 다음 장치는 레일 위치 신호를 받은 뒤에 시작합니다.</figcaption>
+      </figure>
       <div class="split">
-        <figure class="figure">
-          <div class="frame"><img src="assets/img/recipet-tasks.png" alt="STM32G474 FreeRTOS 공정 순서 태스크와 레일, 위치 센서, 서보, 펌프 태스크 구조" loading="lazy"></div>
-          <figcaption>그림 3. 장치별 태스크와 공정 순서. 다음 장치는 레일 위치 신호를 받은 뒤에 시작합니다.</figcaption>
-        </figure>
         <figure class="figure">
           <div class="frame photo"><img src="assets/img/recipet-machine.png" alt="제작한 포장 자동화 장비" loading="lazy"></div>
           <figcaption>제작한 포장 자동화 장비</figcaption>
+        </figure>
+        <figure class="figure">
+          <div class="frame photo"><img src="assets/img/midi-board.jpg" alt="STM32 보드와 모터 드라이버, 센서 배선을 올린 장비 제어 보드" loading="lazy"></div>
+          <figcaption>장비 제어 보드</figcaption>
         </figure>
       </div>
       <div class="pse">
@@ -343,7 +348,7 @@
           </table>
         </div>
       </details>
-      <div class="links-row"><a href="https://github.com/Seoul-Young-Careers" target="_blank" rel="noopener">코드 github.com/Seoul-Young-Careers ↗</a><a href="https://www.youtube.com/watch?v=yQSTGEwrlo8" target="_blank" rel="noopener">시연 영상 ↗</a></div>
+      <div class="links-row"><a href="https://github.com/Seoul-Young-Careers/NUCLEOG474RE" target="_blank" rel="noopener">코드 github.com/Seoul-Young-Careers/NUCLEOG474RE ↗</a><a href="https://www.youtube.com/watch?v=yQSTGEwrlo8" target="_blank" rel="noopener">시연 영상 ↗</a></div>
     </article>
 
     <!-- MIDI -->
@@ -355,16 +360,10 @@
         <dt>형태</dt><dd>1인 개발 · 드라이버와 명령행 인터페이스(CLI)</dd>
         <dt>기술</dt><dd><span class="chips"><span class="chip">C</span><span class="chip">STM32F411</span><span class="chip">SPI</span><span class="chip">UART</span><span class="chip">MIDI</span><span class="chip">USB CDC</span><span class="chip">VS1053</span></span></dd>
       </dl>
-      <div class="split">
-        <figure class="figure">
-          <div class="frame"><img src="assets/img/midi-arch.png" alt="PC USB CDC에서 STM32F411 CLI로, SPI 레지스터 제어와 UART MIDI 메시지로 VS1053을 제어하는 구조" loading="lazy"></div>
-          <figcaption>그림 4. 제어 경로(SPI)와 연주 경로(UART)를 나눈 구조. 레지스터 쓰기 전후에는 항상 DREQ를 확인합니다.</figcaption>
-        </figure>
-        <figure class="figure">
-          <div class="frame photo"><img src="assets/img/midi-board.jpg" alt="STM32 보드와 VS1053 모듈을 연결한 시제품 기판" loading="lazy"></div>
-          <figcaption>시제품 보드</figcaption>
-        </figure>
-      </div>
+      <figure class="figure">
+        <div class="frame"><img src="assets/img/midi-arch.png" alt="PC USB CDC에서 STM32F411 CLI로, SPI 레지스터 제어와 UART MIDI 메시지로 VS1053을 제어하는 구조" loading="lazy"></div>
+        <figcaption>그림 4. 제어 경로(SPI)와 연주 경로(UART)를 나눈 구조. 레지스터 쓰기 전후에는 항상 DREQ를 확인합니다.</figcaption>
+      </figure>
       <div class="pse">
         <div class="problem"><span class="label">문제</span><ul>
           <li>VS1053은 명령을 처리하는 동안 새 입력을 받지 못하고 그 상태를 DREQ 핀으로 알립니다. 처리 중에 보낸 레지스터 명령은 무시되거나 깨질 수 있습니다.</li>
@@ -378,7 +377,7 @@
         </ul></div>
         <div><span class="label">결과</span><p>하나의 CLI에서 레지스터 조회, 테스트음, 음색 선택, 드럼 연주를 실행할 수 있게 됐고, 소리가 나지 않을 때 SPI 제어 문제인지 오디오 경로 문제인지 명령 하나로 나눠 볼 수 있습니다.</p></div>
       </div>
-      <div class="links-row"><a href="https://github.com/turn-world-Synthesizer" target="_blank" rel="noopener">코드 github.com/turn-world-Synthesizer ↗</a></div>
+      <div class="links-row"><a href="https://github.com/turn-world-Synthesizer/STM32F411" target="_blank" rel="noopener">코드 github.com/turn-world-Synthesizer/STM32F411 ↗</a></div>
     </article>
 
     <!-- 독립형 신디 -->
@@ -413,134 +412,41 @@
       </details>
     </article>
 
-    <!-- KeyMento -->
-    <article class="project reveal" id="keymento">
-      <p class="kicker">Idea &amp; System Design · KeyMento <span class="badge live">진행 중</span></p>
-      <h3>악보 대신 건반 위에 다음 음을 띄우는 AR 피아노 학습 시스템 구상과 설계</h3>
-      <dl class="meta">
-        <dt>기간</dt><dd>2026.04 – 진행 중</dd>
-        <dt>팀</dt><dd>4인 · Real-time AR Piano Learning Assistant</dd>
-        <dt>역할</dt><dd>아이디어 구상, 전체 시스템 구조 설계 (입력 · 판정 · AR 출력)</dd>
-        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">mido</span><span class="chip">python-rtmidi</span><span class="chip">OpenCV · ArUco</span><span class="chip">Raspberry Pi LCD</span><span class="chip">Web UI</span></span></dd>
-      </dl>
-
-      <div class="pse">
-        <div><span class="label">출발점</span><ul>
-          <li>피아노는 레슨 의존도가 높고, 혼자 연습할 때는 무엇을 틀렸는지 바로 알려 주는 사람이 없습니다.</li>
-          <li>기존 앱(Synthesia, Simply Piano)은 다음 음을 <b>별도 화면</b>에 보여 줘서, 연습하는 동안 화면과 손을 계속 번갈아 봐야 합니다.</li>
-        </ul></div>
-        <div class="solve"><span class="label">아이디어</span><ul>
-          <li><b>안내를 건반 위로</b> 웹캠으로 건반을 인식해 다음에 칠 건반 위에 직접 원을 그리면, 시선을 옮기지 않고 칠 수 있습니다.</li>
-          <li><b>매 음마다 채점</b> 맞음 · 틀림 개수가 아니라 음마다 등급과 타이밍 오차(ms)를 바로 보여 줘서 무엇을 고칠지 알 수 있게 합니다.</li>
-        </ul></div>
-        <div><span class="label">근거</span><ul>
-          <li>스마트 피아노의 정량 피드백은 음정 · 박자 오류를 37% 줄였습니다(Xu &amp; Zulkarnain, 2025). → 모든 음에 즉시, 등급으로 피드백</li>
-          <li>시선 고정이 적고 짧을수록 연주 정확도가 높았습니다(Lörch, 2021, 144명). → 안내를 건반 위에 두어 시선 이동을 줄임</li>
-        </ul></div>
-      </div>
-
-      <div style="overflow-x:auto;margin:16px 0 8px">
-      <table class="awards">
-        <thead><tr><th></th><th>Synthesia</th><th>Simply Piano</th><th>KeyMento</th></tr></thead>
-        <tbody>
-          <tr><td>즉시 피드백</td><td>X</td><td>O</td><td><b>O</b></td></tr>
-          <tr><td>피드백 형태</td><td>맞음 · 틀림 개수</td><td>파랑 · 빨강 음표</td><td><b>등급 + 오차(ms)</b></td></tr>
-          <tr><td>다음 음 안내</td><td>떨어지는 음표</td><td>화면 속 건반</td><td><b>건반 위 AR 원</b></td></tr>
-          <tr><td>안내 위치</td><td>별도 화면</td><td>별도 화면</td><td><b>실제 건반 위</b></td></tr>
-        </tbody>
-      </table>
-      </div>
-
-      <div class="split" style="margin-top:20px">
-        <figure class="figure">
-          <div class="frame"><img src="assets/img/keymento-system.png" alt="Reference MIDI, MIDI 키보드, 웹캠 입력이 MIDI 파싱, 실시간 입력, 캘리브레이션을 거쳐 판정 엔진과 AR 가이드 렌더링, 디스플레이로 이어지는 시스템 구조" loading="lazy"></div>
-          <figcaption>그림 6. 시스템 구조. 정답 MIDI(mido)와 실시간 건반 입력(python-rtmidi)을 판정 엔진에서 맞추고, 웹캠 캘리브레이션(ArUco · OpenCV)으로 건반 위에 안내를 그립니다.</figcaption>
-        </figure>
-        <div>
-          <div class="pse">
-            <div><span class="label">입력</span><p>정답 MIDI 파일, MIDI 키보드, 웹캠 세 가지로 나눴습니다.</p></div>
-            <div><span class="label">처리</span><p>PC에서 두 갈래로 처리합니다. MIDI 파싱 → 판정 엔진, 캘리브레이션 → AR 렌더링</p></div>
-            <div><span class="label">출력</span><p>Web UI와 Raspberry Pi LCD에 안내와 연주 결과 요약을 보여 줍니다.</p></div>
-          </div>
-          <ul class="plain" style="margin-top:16px">
-            <li><b>캘리브레이션</b> ArUco 마커로 자동 인식하고, 마커가 없을 때는 네 점을 클릭하는 수동 방식도 두었습니다. 호모그래피로 카메라 화면을 건반 좌표에 맞춥니다.</li>
-            <li><b>판정 기준</b> 음 높이가 맞는지와 타이밍 오차로 Perfect / Great / Good / Miss를 나눕니다.</li>
-            <li><b>두 가지 모드</b> 맞게 칠 때까지 기다리는 연습 모드와, 템포대로 진행하는 일반 모드를 두었습니다.</li>
-            <li><b>점수</b> (음정 정확도 + 박자 정확도) / 2</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pse" style="margin-top:20px">
-        <div><span class="label">예비 실험</span><ul>
-          <li>같은 사람이 악보만 보고 칠 때(Baseline)와 KeyMento를 켜고 칠 때를 비교했습니다. 순서와 곡은 교차 배치하고, 곡은 Chiu &amp; Chen(2012)의 난이도 지표 다섯 가지로 난이도를 맞췄습니다.</li>
-          <li>노트북 카메라로 시선을 추적했습니다. 참가자는 팀원 1명인 예비 실험이고, 본 사용자 실험과 논문을 준비하고 있습니다.</li>
-        </ul></div>
-      </div>
-      <div class="results">
-        <div class="result"><b>+13.7%p</b><span>음정 정확도 (박자 +7.6%p, 종합 점수 +10.7)</span></div>
-        <div class="result"><b>19 → 3회</b><span>건반을 내려다본 횟수</span></div>
-        <div class="result"><b>11 → 2회</b><span>잘못 누른 건반 수</span></div>
-      </div>
-
-      <details class="more">
-        <summary>예비 실험 그래프 · 실제 화면 보기</summary>
-        <div class="inner">
-          <figure class="figure">
-            <div class="frame"><img src="assets/img/keymento-results.png" alt="Baseline과 KeyMento의 음정·박자 정확도, 종합 점수와 시선·오타 횟수 비교 그래프" loading="lazy"></div>
-            <figcaption>예비 실험 결과(참가자 1명). 내려다보면서 친 음도 31개에서 5개로 줄었습니다.</figcaption>
-          </figure>
-          <figure class="figure">
-            <div class="frame photo"><img src="assets/img/keymento-demo.jpg" alt="KeyMento 웹 UI 연주 결과 화면. 92.5점, 음정 정확도 93.8%, 박자 정확도 91.3%" loading="lazy"></div>
-            <figcaption>실제 화면. 곡 · 속도 · 입력(로컬 MIDI / Pi UDP) · 모드를 고르고, 연주가 끝나면 점수와 판정 개수를 보여 줍니다. 뒤로 웹캠 영상의 ArUco 마커가 보입니다.</figcaption>
-          </figure>
-        </div>
-      </details>
-    </article>
-
-    <!-- Quant -->
-    <article class="project reveal" id="quant">
-      <p class="kicker">AI-assisted · 개인 프로젝트 <span class="badge live">운영 중</span></p>
-      <h3>AI 에이전트로 만들고 대조 테스트로 검증한 24시간 자동매매 봇</h3>
-      <dl class="meta">
-        <dt>기간</dt><dd>2026.04 – 진행 중</dd>
-        <dt>형태</dt><dd>개인 · 리눅스 서버에서 24시간 가동</dd>
-        <dt>구성</dt><dd>Python 전략 검증 → C# 실행 봇 · 보기 전용 대시보드</dd>
-        <dt>AI</dt><dd><span class="chips"><span class="chip">Claude Code</span><span class="chip">Codex</span><span class="chip">ChatGPT</span></span></dd>
-        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">C# (.NET)</span><span class="chip">pandas</span><span class="chip">systemd</span><span class="chip">Telegram</span></span></dd>
-      </dl>
-      <figure class="figure">
-        <div class="frame"><img src="assets/img/quant-reconcile.png" alt="매 tick마다 거래소 포지션과 장부를 대조해 어긋나면 신규 진입을 잠그는 구조" loading="lazy"></div>
-        <figcaption>그림 7. 매 tick의 장부 대조. 차량 제어기의 페달 센서처럼 어긋나면 멈추는 쪽을 택합니다. 전략 판단은 비공개입니다.</figcaption>
-      </figure>
-      <div class="pse">
-        <div><span class="label">AI 활용</span><ul>
-          <li>구현과 C# 이관은 Claude Code, 일부 기능은 Codex가 맡고 백테스트 해석은 ChatGPT로 교차 검토했습니다. 커밋 509개 중 490개를 AI와 함께 썼습니다.</li>
-          <li>AI가 지킬 규칙을 CLAUDE.md · AGENTS.md로 정리했습니다. 사고에서 나온 방어 코드는 지우지 않기, 모르는 값은 0이 아니라 null로 두기 같은 것입니다.</li>
-        </ul></div>
-        <div class="problem"><span class="label">문제</span><ul>
-          <li>한 전략의 주기 실행(tick)에서 난 예외 하나가 스케줄러 전체를 72분 동안 멈춰, 다른 전략의 청산까지 함께 멈췄습니다.</li>
-          <li>장부에 수량 0인 빈 포지션이 남아 대조 단계가 예외를 던졌고, 신규 진입이 8일 동안 잠겼습니다.</li>
-        </ul></div>
-        <div class="solve"><span class="label">해결</span><ul>
-          <li>tick마다 예외를 격리해 하나가 실패해도 나머지는 돌게 하고, 같은 실패가 반복되면 텔레그램으로 알리게 했습니다.</li>
-          <li>거래소를 기준, 장부를 캐시로 두고 매 tick 대조해 어긋나면 신규 진입만 잠급니다. 장부는 임시 파일에 쓴 뒤 이름을 바꿔(double buffer + swap) 쓰는 도중 꺼져도 깨지지 않습니다.</li>
-        </ul></div>
-      </div>
-      <div class="results">
-        <div class="result"><b>261건</b><span>Python과 C#의 7년치 거래가 모두 일치</span></div>
-        <div class="result"><b>1,800+</b><span>장애 재현을 포함한 자동 테스트</span></div>
-        <div class="result"><b>490 / 509</b><span>AI와 함께 쓴 커밋</span></div>
-      </div>
-    </article>
   </div>
 </section>
 
-<!-- 05 APPROACH -->
+<!-- 05 MORE -->
+<section class="block" id="more">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="num">05 / MORE PROJECTS</span>
+      <h2>그 밖의 프로젝트</h2>
+      <p>펌웨어 밖에서 진행한 프로젝트입니다. 카드를 누르면 상세 페이지가 열립니다.</p>
+    </div>
+    <div class="morecards">
+      <a class="card morecard reveal" href="keymento.html">
+        <p class="kicker">Idea &amp; System Design · 졸업 프로젝트 <span class="badge live">진행 중</span></p>
+        <h3>KeyMento · 건반 위에 다음 음을 띄우는 AR 피아노 학습 시스템</h3>
+        <p>웹캠으로 건반을 인식해 다음 음을 실제 건반 위에 표시하고, 매 음마다 등급과 타이밍 오차로 채점합니다. 아이디어 구상과 전체 시스템 구조 설계를 맡았습니다.</p>
+        <span class="chips"><span class="chip">Python</span><span class="chip">OpenCV · ArUco</span><span class="chip">MIDI</span><span class="chip">Raspberry Pi</span></span>
+        <span class="go">상세 페이지 보기 →</span>
+      </a>
+      <a class="card morecard reveal" href="quant.html">
+        <p class="kicker">AI-assisted · 개인 프로젝트 <span class="badge live">운영 중</span></p>
+        <h3>24시간 자동매매 봇 · AI 에이전트로 만들고 대조 테스트로 검증</h3>
+        <p>리눅스 서버에서 24시간 도는 자동매매 봇입니다. 거래소와 장부가 어긋나면 신규 진입을 잠그고, Python과 C# 결과를 7년치 거래로 대조해 검증했습니다.</p>
+        <span class="chips"><span class="chip">Python</span><span class="chip">C# (.NET)</span><span class="chip">systemd</span><span class="chip">Claude Code</span></span>
+        <span class="go">상세 페이지 보기 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 06 APPROACH -->
 <section class="block" id="approach">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="num">05 / APPROACH</span>
+      <span class="num">06 / APPROACH</span>
       <h2>프로젝트에서 반복한 작업 방식</h2>
     </div>
     <div class="ways">

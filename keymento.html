@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KeyMento | 조용준</title>
+<meta name="description" content="AR 피아노 학습 시스템 KeyMento의 아이디어 구상과 시스템 설계, 예비 실험 결과.">
+<meta property="og:title" content="KeyMento | 조용준">
+<meta property="og:description" content="AR 피아노 학습 시스템 KeyMento의 아이디어 구상과 시스템 설계, 예비 실험 결과.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/dash-car.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231d1d1b'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'%3Eyj%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">yj<span>.</span></a>
+    <ul>
+      <li><a href="index.html#featured">펌웨어 프로젝트</a></li>
+      <li><a href="index.html#more">그 밖의 프로젝트</a></li>
+      <li><a href="index.html#contact">연락</a></li>
+    </ul>
+    <a class="gh" href="https://github.com/turn-world" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</header>
+
+<main id="main">
+<section class="subhead" id="top">
+  <div class="wrap">
+    <a class="back" href="index.html#more">← 포트폴리오로 돌아가기</a>
+    <p class="eyebrow">More Projects / 01 · KeyMento</p>
+  </div>
+</section>
+<section class="block" style="border-top:0;padding-top:0">
+  <div class="wrap">
+    
+    <article class="project reveal" id="keymento">
+      <p class="kicker">Idea &amp; System Design · KeyMento <span class="badge live">진행 중</span></p>
+      <h3>악보 대신 건반 위에 다음 음을 띄우는 AR 피아노 학습 시스템 구상과 설계</h3>
+      <dl class="meta">
+        <dt>기간</dt><dd>2026.04 – 진행 중</dd>
+        <dt>팀</dt><dd>4인 · Real-time AR Piano Learning Assistant</dd>
+        <dt>역할</dt><dd>아이디어 구상, 전체 시스템 구조 설계 (입력 · 판정 · AR 출력)</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">mido</span><span class="chip">python-rtmidi</span><span class="chip">OpenCV · ArUco</span><span class="chip">Raspberry Pi LCD</span><span class="chip">Web UI</span></span></dd>
+      </dl>
+
+      <div class="pse">
+        <div><span class="label">출발점</span><ul>
+          <li>피아노는 레슨 의존도가 높고, 혼자 연습할 때는 무엇을 틀렸는지 바로 알려 주는 사람이 없습니다.</li>
+          <li>기존 앱(Synthesia, Simply Piano)은 다음 음을 <b>별도 화면</b>에 보여 줘서, 연습하는 동안 화면과 손을 계속 번갈아 봐야 합니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">아이디어</span><ul>
+          <li><b>안내를 건반 위로</b> 웹캠으로 건반을 인식해 다음에 칠 건반 위에 직접 원을 그리면, 시선을 옮기지 않고 칠 수 있습니다.</li>
+          <li><b>매 음마다 채점</b> 맞음 · 틀림 개수가 아니라 음마다 등급과 타이밍 오차(ms)를 바로 보여 줘서 무엇을 고칠지 알 수 있게 합니다.</li>
+        </ul></div>
+        <div><span class="label">근거</span><ul>
+          <li>스마트 피아노의 정량 피드백은 음정 · 박자 오류를 37% 줄였습니다(Xu &amp; Zulkarnain, 2025). → 모든 음에 즉시, 등급으로 피드백</li>
+          <li>시선 고정이 적고 짧을수록 연주 정확도가 높았습니다(Lörch, 2021, 144명). → 안내를 건반 위에 두어 시선 이동을 줄임</li>
+        </ul></div>
+      </div>
+
+      <div style="overflow-x:auto;margin:16px 0 8px">
+      <table class="awards">
+        <thead><tr><th></th><th>Synthesia</th><th>Simply Piano</th><th>KeyMento</th></tr></thead>
+        <tbody>
+          <tr><td>즉시 피드백</td><td>X</td><td>O</td><td><b>O</b></td></tr>
+          <tr><td>피드백 형태</td><td>맞음 · 틀림 개수</td><td>파랑 · 빨강 음표</td><td><b>등급 + 오차(ms)</b></td></tr>
+          <tr><td>다음 음 안내</td><td>떨어지는 음표</td><td>화면 속 건반</td><td><b>건반 위 AR 원</b></td></tr>
+          <tr><td>안내 위치</td><td>별도 화면</td><td>별도 화면</td><td><b>실제 건반 위</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="split" style="margin-top:20px">
+        <figure class="figure">
+          <div class="frame"><img src="assets/img/keymento-system.png" alt="Reference MIDI, MIDI 키보드, 웹캠 입력이 MIDI 파싱, 실시간 입력, 캘리브레이션을 거쳐 판정 엔진과 AR 가이드 렌더링, 디스플레이로 이어지는 시스템 구조" loading="lazy"></div>
+          <figcaption>그림 1. 시스템 구조. 정답 MIDI(mido)와 실시간 건반 입력(python-rtmidi)을 판정 엔진에서 맞추고, 웹캠 캘리브레이션(ArUco · OpenCV)으로 건반 위에 안내를 그립니다.</figcaption>
+        </figure>
+        <div>
+          <div class="pse">
+            <div><span class="label">입력</span><p>정답 MIDI 파일, MIDI 키보드, 웹캠 세 가지로 나눴습니다.</p></div>
+            <div><span class="label">처리</span><p>PC에서 두 갈래로 처리합니다. MIDI 파싱 → 판정 엔진, 캘리브레이션 → AR 렌더링</p></div>
+            <div><span class="label">출력</span><p>Web UI와 Raspberry Pi LCD에 안내와 연주 결과 요약을 보여 줍니다.</p></div>
+          </div>
+          <ul class="plain" style="margin-top:16px">
+            <li><b>캘리브레이션</b> ArUco 마커로 자동 인식하고, 마커가 없을 때는 네 점을 클릭하는 수동 방식도 두었습니다. 호모그래피로 카메라 화면을 건반 좌표에 맞춥니다.</li>
+            <li><b>판정 기준</b> 음 높이가 맞는지와 타이밍 오차로 Perfect / Great / Good / Miss를 나눕니다.</li>
+            <li><b>두 가지 모드</b> 맞게 칠 때까지 기다리는 연습 모드와, 템포대로 진행하는 일반 모드를 두었습니다.</li>
+            <li><b>점수</b> (음정 정확도 + 박자 정확도) / 2</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pse" style="margin-top:20px">
+        <div><span class="label">예비 실험</span><ul>
+          <li>같은 사람이 악보만 보고 칠 때(Baseline)와 KeyMento를 켜고 칠 때를 비교했습니다. 순서와 곡은 교차 배치하고, 곡은 Chiu &amp; Chen(2012)의 난이도 지표 다섯 가지로 난이도를 맞췄습니다.</li>
+          <li>노트북 카메라로 시선을 추적했습니다. 참가자는 팀원 1명인 예비 실험이고, 본 사용자 실험과 논문을 준비하고 있습니다.</li>
+        </ul></div>
+      </div>
+      <div class="results">
+        <div class="result"><b>+13.7%p</b><span>음정 정확도 (박자 +7.6%p, 종합 점수 +10.7)</span></div>
+        <div class="result"><b>19 → 3회</b><span>건반을 내려다본 횟수</span></div>
+        <div class="result"><b>11 → 2회</b><span>잘못 누른 건반 수</span></div>
+      </div>
+
+      <details class="more">
+        <summary>예비 실험 그래프 · 실제 화면 보기</summary>
+        <div class="inner">
+          <figure class="figure">
+            <div class="frame"><img src="assets/img/keymento-results.png" alt="Baseline과 KeyMento의 음정·박자 정확도, 종합 점수와 시선·오타 횟수 비교 그래프" loading="lazy"></div>
+            <figcaption>예비 실험 결과(참가자 1명). 내려다보면서 친 음도 31개에서 5개로 줄었습니다.</figcaption>
+          </figure>
+          <figure class="figure">
+            <div class="frame photo"><img src="assets/img/keymento-demo.jpg" alt="KeyMento 웹 UI 연주 결과 화면. 92.5점, 음정 정확도 93.8%, 박자 정확도 91.3%" loading="lazy"></div>
+            <figcaption>실제 화면. 곡 · 속도 · 입력(로컬 MIDI / Pi UDP) · 모드를 고르고, 연주가 끝나면 점수와 판정 개수를 보여 줍니다. 뒤로 웹캠 영상의 ArUco 마커가 보입니다.</figcaption>
+          </figure>
+        </div>
+      </details>
+      <div class="links-row"><a href="https://github.com/Key-Mento/Keymento" target="_blank" rel="noopener">코드 github.com/Key-Mento/Keymento ↗</a></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h2>조용준</h2>
+      <p>임베디드 펌웨어 엔지니어</p>
+    </div>
+    <ul class="contact">
+      <li><a href="mailto:cho0040@naver.com">cho0040@naver.com</a></li>
+      <li><a href="https://github.com/turn-world" target="_blank" rel="noopener">github.com/turn-world</a></li>
+      <li><a class="top" href="#top">맨 위로 ↑</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+    window.addEventListener('beforeprint', function () { document.querySelectorAll('details').forEach(function (d) { d.open = true; }); });
+  })();
+</script>
+</body>
+</html>
