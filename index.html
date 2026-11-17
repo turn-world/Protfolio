@@ -76,7 +76,7 @@
       <li><time>2025.07 – 2025.09</time><div><h3>시스템 반도체 SW 개발 기초</h3><p>코멘토 · 디바이스 드라이버 개발 교육</p></div></li>
       <li><time>2025.09 – 2026.08</time><div><h3><a href="#featured">Formula Student Korea 2026 · LIGHT-ON</a></h3><p>30인 팀 · VCU 펌웨어(APPS · CAN 토크 제어), 운전자 계기판, 원격 모니터링 · 종합 5위</p></div></li>
       <li><time>2026.03 – 2026.06</time><div><h3><a href="#recipet">서울 영커리언스 챌린지 · 레시펫</a></h3><p>8인 팀 · FreeRTOS 포장 자동화 장비 제어 · 우수상</p></div></li>
-      <li><time>2026.04 – 현재</time><div><h3><a href="#keymento">KeyMento</a> · <a href="#quant">자동매매 봇</a></h3><p>AR 피아노 학습 시스템(4인) MIDI 판정 · 개인 자동매매 봇 운영</p></div></li>
+      <li><time>2026.04 – 현재</time><div><h3><a href="#keymento">KeyMento</a> · <a href="#quant">자동매매 봇</a></h3><p>AR 피아노 학습 시스템(4인) 구상 · 설계 · 개인 자동매매 봇 운영</p></div></li>
       <li class="on"><time>2026.10 – 현재</time><div><h3><a href="#synth">독립형 신디사이저 설계</a></h3><p>개인 · KiCad 확장 보드 PCB 설계 중 · 같은 달 교내 캡스톤 와우상(레시펫 장비)</p></div></li>
       <li><time>2027.02</time><div><h3>홍익대학교 졸업 예정</h3><p>컴퓨터공학과 · 부전공 전자전기공학부</p></div></li>
     </ol>
@@ -404,23 +404,87 @@
 
     <!-- KeyMento -->
     <article class="project reveal" id="keymento">
-      <p class="kicker">Team Project · KeyMento <span class="badge live">진행 중</span></p>
-      <h3>겹친 음을 걸러 화음을 판정하는 AR 피아노 학습 시스템</h3>
+      <p class="kicker">Idea &amp; System Design · KeyMento <span class="badge live">진행 중</span></p>
+      <h3>악보 대신 건반 위에 다음 음을 띄우는 AR 피아노 학습 시스템 구상과 설계</h3>
       <dl class="meta">
         <dt>기간</dt><dd>2026.04 – 진행 중</dd>
-        <dt>팀</dt><dd>4인 · AR 피아노 학습 시스템</dd>
-        <dt>역할</dt><dd>전체 구성, MIDI 판정 세션 (연습 모드 · 화음 판정)</dd>
-        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">MIDI</span></span></dd>
+        <dt>팀</dt><dd>4인 · Real-time AR Piano Learning Assistant</dd>
+        <dt>역할</dt><dd>아이디어 구상, 전체 시스템 구조 설계 (입력 · 판정 · AR 출력)</dd>
+        <dt>기술</dt><dd><span class="chips"><span class="chip">Python</span><span class="chip">mido</span><span class="chip">python-rtmidi</span><span class="chip">OpenCV · ArUco</span><span class="chip">Raspberry Pi LCD</span><span class="chip">Web UI</span></span></dd>
       </dl>
-      <figure class="figure">
-        <div class="frame"><img src="assets/img/keymento-flow.png" alt="트랙 A와 트랙 B의 음을 합쳐 화음 정답을 만들고 연습 모드에서 판정하는 흐름" loading="lazy"></div>
-        <figcaption>그림 6. 트랙 병합에서 연습 모드 판정까지. 고치기 전에는 두 트랙의 도가 정답에 두 번 들어가 같은 건반을 두 번 눌러야 정답이 됐습니다.</figcaption>
-      </figure>
+
       <div class="pse">
-        <div class="problem"><span class="label">문제</span><p>여러 MIDI 트랙에서 같은 시점에 같은 음이 나오면 그 음이 화음 정답에 두 번 들어가, 맞게 쳐도 오답으로 처리됐습니다.</p></div>
-        <div class="solve"><span class="label">해결</span><p>중복 검사 범위를 곡 전체가 아니라 화음 하나로 정해, 한 화음 안에서 겹치는 음만 걸렀습니다. 다른 시점의 같은 음은 그대로 둡니다.</p></div>
-        <div><span class="label">결과</span><p>트랙 A의 도 · 미와 트랙 B의 도 · 솔을 합치면 정답은 도 · 미 · 솔이 되고, 건반을 한 번만 누르면 정답으로 판정됩니다. 지금은 웹캠 시선 분석으로 AR 안내와 화면 악보를 비교하는 사용자 실험과 논문을 준비하고 있습니다.</p></div>
+        <div><span class="label">출발점</span><ul>
+          <li>피아노는 레슨 의존도가 높고, 혼자 연습할 때는 무엇을 틀렸는지 바로 알려 주는 사람이 없습니다.</li>
+          <li>기존 앱(Synthesia, Simply Piano)은 다음 음을 <b>별도 화면</b>에 보여 줘서, 연습하는 동안 화면과 손을 계속 번갈아 봐야 합니다.</li>
+        </ul></div>
+        <div class="solve"><span class="label">아이디어</span><ul>
+          <li><b>안내를 건반 위로</b> 웹캠으로 건반을 인식해 다음에 칠 건반 위에 직접 원을 그리면, 시선을 옮기지 않고 칠 수 있습니다.</li>
+          <li><b>매 음마다 채점</b> 맞음 · 틀림 개수가 아니라 음마다 등급과 타이밍 오차(ms)를 바로 보여 줘서 무엇을 고칠지 알 수 있게 합니다.</li>
+        </ul></div>
+        <div><span class="label">근거</span><ul>
+          <li>스마트 피아노의 정량 피드백은 음정 · 박자 오류를 37% 줄였습니다(Xu &amp; Zulkarnain, 2025). → 모든 음에 즉시, 등급으로 피드백</li>
+          <li>시선 고정이 적고 짧을수록 연주 정확도가 높았습니다(Lörch, 2021, 144명). → 안내를 건반 위에 두어 시선 이동을 줄임</li>
+        </ul></div>
       </div>
+
+      <div style="overflow-x:auto;margin:16px 0 8px">
+      <table class="awards">
+        <thead><tr><th></th><th>Synthesia</th><th>Simply Piano</th><th>KeyMento</th></tr></thead>
+        <tbody>
+          <tr><td>즉시 피드백</td><td>X</td><td>O</td><td><b>O</b></td></tr>
+          <tr><td>피드백 형태</td><td>맞음 · 틀림 개수</td><td>파랑 · 빨강 음표</td><td><b>등급 + 오차(ms)</b></td></tr>
+          <tr><td>다음 음 안내</td><td>떨어지는 음표</td><td>화면 속 건반</td><td><b>건반 위 AR 원</b></td></tr>
+          <tr><td>안내 위치</td><td>별도 화면</td><td>별도 화면</td><td><b>실제 건반 위</b></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="split" style="margin-top:20px">
+        <figure class="figure">
+          <div class="frame"><img src="assets/img/keymento-system.png" alt="Reference MIDI, MIDI 키보드, 웹캠 입력이 MIDI 파싱, 실시간 입력, 캘리브레이션을 거쳐 판정 엔진과 AR 가이드 렌더링, 디스플레이로 이어지는 시스템 구조" loading="lazy"></div>
+          <figcaption>그림 6. 시스템 구조. 정답 MIDI(mido)와 실시간 건반 입력(python-rtmidi)을 판정 엔진에서 맞추고, 웹캠 캘리브레이션(ArUco · OpenCV)으로 건반 위에 안내를 그립니다.</figcaption>
+        </figure>
+        <div>
+          <div class="pse">
+            <div><span class="label">입력</span><p>정답 MIDI 파일, MIDI 키보드, 웹캠 세 가지로 나눴습니다.</p></div>
+            <div><span class="label">처리</span><p>PC에서 두 갈래로 처리합니다. MIDI 파싱 → 판정 엔진, 캘리브레이션 → AR 렌더링</p></div>
+            <div><span class="label">출력</span><p>Web UI와 Raspberry Pi LCD에 안내와 연주 결과 요약을 보여 줍니다.</p></div>
+          </div>
+          <ul class="plain" style="margin-top:16px">
+            <li><b>캘리브레이션</b> ArUco 마커로 자동 인식하고, 마커가 없을 때는 네 점을 클릭하는 수동 방식도 두었습니다. 호모그래피로 카메라 화면을 건반 좌표에 맞춥니다.</li>
+            <li><b>판정 기준</b> 음 높이가 맞는지와 타이밍 오차로 Perfect / Great / Good / Miss를 나눕니다.</li>
+            <li><b>두 가지 모드</b> 맞게 칠 때까지 기다리는 연습 모드와, 템포대로 진행하는 일반 모드를 두었습니다.</li>
+            <li><b>점수</b> (음정 정확도 + 박자 정확도) / 2</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pse" style="margin-top:20px">
+        <div><span class="label">예비 실험</span><ul>
+          <li>같은 사람이 악보만 보고 칠 때(Baseline)와 KeyMento를 켜고 칠 때를 비교했습니다. 순서와 곡은 교차 배치하고, 곡은 Chiu &amp; Chen(2012)의 난이도 지표 다섯 가지로 난이도를 맞췄습니다.</li>
+          <li>노트북 카메라로 시선을 추적했습니다. 참가자는 팀원 1명인 예비 실험이고, 본 사용자 실험과 논문을 준비하고 있습니다.</li>
+        </ul></div>
+      </div>
+      <div class="results">
+        <div class="result"><b>+13.7%p</b><span>음정 정확도 (박자 +7.6%p, 종합 점수 +10.7)</span></div>
+        <div class="result"><b>19 → 3회</b><span>건반을 내려다본 횟수</span></div>
+        <div class="result"><b>11 → 2회</b><span>잘못 누른 건반 수</span></div>
+      </div>
+
+      <details class="more">
+        <summary>예비 실험 그래프 · 실제 화면 보기</summary>
+        <div class="inner">
+          <figure class="figure">
+            <div class="frame"><img src="assets/img/keymento-results.png" alt="Baseline과 KeyMento의 음정·박자 정확도, 종합 점수와 시선·오타 횟수 비교 그래프" loading="lazy"></div>
+            <figcaption>예비 실험 결과(참가자 1명). 내려다보면서 친 음도 31개에서 5개로 줄었습니다.</figcaption>
+          </figure>
+          <figure class="figure">
+            <div class="frame photo"><img src="assets/img/keymento-demo.jpg" alt="KeyMento 웹 UI 연주 결과 화면. 92.5점, 음정 정확도 93.8%, 박자 정확도 91.3%" loading="lazy"></div>
+            <figcaption>실제 화면. 곡 · 속도 · 입력(로컬 MIDI / Pi UDP) · 모드를 고르고, 연주가 끝나면 점수와 판정 개수를 보여 줍니다. 뒤로 웹캠 영상의 ArUco 마커가 보입니다.</figcaption>
+          </figure>
+        </div>
+      </details>
     </article>
 
     <!-- Quant -->
